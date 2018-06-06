@@ -8,10 +8,42 @@ type Post {
   author: User!
 }
 
+type Group {
+  id: ID! @unique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  users: [User!]!
+  sessions: [Session!]!
+  title: String!
+}
+
+type Session {
+  id: ID! @unique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  group: Group!
+  genre: String!
+  expiration: DateTime!
+  submissions: [Submission!]!
+}
+
+type Submission {
+  id: ID! @unique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  session: Session!
+  user: User!
+  votes: Int!
+  songTitle: String!
+  songArtist: String!
+  link: String
+}
+
 type User {
   id: ID! @unique
   email: String! @unique
   password: String!
   name: String!
   posts: [Post!]!
+  groups: [Group!]!
 }
