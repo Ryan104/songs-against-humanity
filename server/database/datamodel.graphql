@@ -33,10 +33,19 @@ type Submission {
   updatedAt: DateTime!
   session: Session!
   user: User!
-  votes: Int!
+  votes: [Vote!]!
   songTitle: String!
   songArtist: String!
   link: String
+}
+
+type Vote {
+  id: ID! @unique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  session: Session!
+  submission: Submission!
+  user: User!
 }
 
 type User {
@@ -46,4 +55,5 @@ type User {
   name: String!
   posts: [Post!]!
   groups: [Group!]!
+  votes: [Vote!]!
 }
