@@ -5,6 +5,9 @@ type Query {
   drafts: [Post!]!
   post(id: ID!): Post
   me: User
+  groups: [Group!]!
+  group(id: ID!): Group
+  submissions: [Submission!]!
 }
 
 type Mutation {
@@ -13,6 +16,14 @@ type Mutation {
   createDraft(title: String!, text: String!): Post!
   publish(id: ID!): Post!
   deletePost(id: ID!): Post!
+  createGroup(title: String!): Group!
+  updateGroup(id: ID!, title: String!): Group!
+  deleteGroup(id: ID!): Group!
+  createSession(genre: String!): Session!
+  createSubmission(songTitle: String!, songArtist: String!, link: String!): Submission!
+  editSubmission(id: ID!, songTitle: String!, songArtist: String!, link: String!): Submission!
+  deleteSubmission(id: ID!): Submission!
+
 }
 
 type Subscription {
