@@ -1,0 +1,4 @@
+PRISMA_ENDPOINT="http://localhost:4466/dev"
+DB_PASSWORD=
+DB_USERNAME=root
+DB_HOST=mysql
