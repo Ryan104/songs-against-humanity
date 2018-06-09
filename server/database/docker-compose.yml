@@ -1,0 +1,31 @@
+version: '3'
+services:
+  database:
+    image: prismagraphql/prisma:1.8
+    restart: always
+    ports:
+    - "4466:4466"
+    environment:
+      PRISMA_CONFIG: |
+        port: 4466
+        # uncomment the next line and provide the env var PRISMA_MANAGEMENT_API_SECRET=my-secret to activate cluster security
+        # managementApiSecret: hello-secret
+        databases:
+          songs-against-humanity:
+            connector: mysql
+            host: ${DB_HOST}
+            port: 3306
+            user: ${DB_USERNAME}
+            password: ${DB_PASSWORD}
+            migrations: true
+  mysql:
+    image: mysql:5.7
+    restart: always
+    ports:
+    - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - mysql:/var/lib/mysql
+volumes:
+  mysql:
