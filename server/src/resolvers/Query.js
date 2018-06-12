@@ -1,6 +1,22 @@
 const { getUserId } = require('../utils')
 
 const Query = {
+  /** All groups */
+  groups(parent, args, ctx, info) {
+    return ctx.db.query.groups({}, info)
+  },
+
+  /** All groups the current user belongs to */
+  myGroups(parent, args, ctx, info) {
+    return ctx.db.query.groups({
+      where: {
+        users_some: {
+          id: getUserId(ctx),
+        },
+      },
+    }, info)
+  },
+
   feed(parent, args, ctx, info) {
     return ctx.db.query.posts({ where: { isPublished: true } }, info)
   },
