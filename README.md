@@ -4,14 +4,14 @@
 
 ### DB
 * `cd server/database`
+* `docker-compose up -d`
+* `cd ..`
 * `cp .example-env .env`
 * add DB password to `.env`
-* `docker-compose up`
-* `prisma deploy --env-file .env` (performs db migrations)
+* `prisma deploy` (performs db migrations)
 
 ### Server
 * `cd server`
-* `cp .example-env .env`
 * add jwt secret to `.env`
 * `npm install`
 * `npm start`
