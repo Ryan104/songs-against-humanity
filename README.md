@@ -3,11 +3,13 @@
 ## Setup
 
 ### DB
-* `cd server/database`
+* `cd server`
+* `cp .example-env .env` (need prisma endpoint)
+* `cd database`
+* `cp .example-env .env` (db config info)
+* add DB password to `.env`
 * `docker-compose up -d`
 * `cd ..`
-* `cp .example-env .env`
-* add DB password to `.env`
 * `prisma deploy` (performs db migrations)
 
 ### Server
