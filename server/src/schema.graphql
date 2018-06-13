@@ -10,13 +10,21 @@ type Query {
 }
 
 type Mutation {
+  # AUTH
   signup(email: String!, password: String!, name: String!): AuthPayload!
   login(email: String!, password: String!): AuthPayload!
+  
+  # DELETE ME
   createDraft(title: String!, text: String!): Post!
   publish(id: ID!): Post!
   deletePost(id: ID!): Post!
+  
+  # GROUP
   createGroup(title: String!): Group!
   joinGroup(id: ID!): Group!
+
+  # SESSION
+  createSession(groupId: ID!, genre: String!): Session!
 }
 
 type Subscription {
