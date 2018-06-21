@@ -17,6 +17,7 @@ const Query = {
     }, info)
   },
 
+  /** Gets the active session for a group */
   async activeSession(parent, args, ctx, info) {
     const { groupId } = args
 
