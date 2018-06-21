@@ -17,6 +17,20 @@ const Query = {
     }, info)
   },
 
+  async activeSession(parent, args, ctx, info) {
+    const { groupId } = args
+
+    const where = {
+      group: {
+        id: groupId,
+      },
+      expiration_gt: new Date(),
+    }
+
+    const sessions = await ctx.db.query.sessions({ where }, info)
+    return sessions[0]
+  },
+
   feed(parent, args, ctx, info) {
     return ctx.db.query.posts({ where: { isPublished: true } }, info)
   },
