@@ -41,3 +41,22 @@ mutation {
     id
   }
 }
+
+# mutation {
+#    createUser(data: {
+#     email: "ryan@ryan.ryan"
+#     password: "$2a$10$hACwQ5/HQI6FhbIISOUVeusy3sKyUDhSq36fF5d/54aAdiygJPFzm" # plaintext password: "nooneknows"
+#     name: "Ryan Elliot"
+#     groups: {
+#       create: [{
+#         title: "MetalPalooze"
+#       }, {
+#         title: "BlueSky GreenGrass"
+#       }, {
+#         title: "Classical Shmassical"
+#       }]
+#     }
+#   }) {
+#     id
+#   }
+# }

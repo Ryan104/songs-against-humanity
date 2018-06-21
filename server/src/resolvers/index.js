@@ -4,6 +4,7 @@ const { auth } = require('./Mutation/auth')
 const { post } = require('./Mutation/post')
 const { group } = require('./Mutation/group')
 const { session } = require('./Mutation/session')
+const { submission } = require('./Mutation/submission')
 const { AuthPayload } = require('./AuthPayload')
 
 module.exports = {
@@ -13,6 +14,7 @@ module.exports = {
     ...post,
     ...group,
     ...session,
+    ...submission
   },
   Subscription,
   AuthPayload,

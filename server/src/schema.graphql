@@ -26,6 +26,9 @@ type Mutation {
 
   # SESSION
   createSession(groupId: ID!, genre: String!): Session!
+
+  # SUBMISSION
+  createSubmission(sessionId: ID!, songTitle: String!, songArtist: String!, link: String): Submission!
 }
 
 type Subscription {
