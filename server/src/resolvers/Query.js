@@ -24,6 +24,9 @@ const Query = {
     const where = {
       group: {
         id: groupId,
+        users_some: {
+          id: getUserId(ctx),
+        }
       },
       expiration_gt: new Date(),
     }
